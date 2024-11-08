@@ -33,6 +33,7 @@ func main() {
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
 	r.Get("/api/categories", categoryHandler.GetAllCategoryHandler)
 	r.Get("/api/categories/{id}", categoryHandler.GetCategoryByIdHandler)
+	r.Put("/api/categories/{id}", categoryHandler.UpdateCategoryHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
