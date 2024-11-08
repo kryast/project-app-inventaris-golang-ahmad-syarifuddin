@@ -22,10 +22,15 @@ func main() {
 	serviceItem := service.NewItemService(repoItem)
 	itemHandler := handler.NewItemHandler(serviceItem)
 
+	repoCategory := repository.NewCategoryRepository(db)
+	serviceCategory := service.NewCategoryService(repoCategory)
+	categoryHandler := handler.NewCategoryHandler(serviceCategory)
+
 	r := chi.NewRouter()
 
 	// Rute untuk User
-	r.Post("/create", itemHandler.CreateItemHandler)
+	r.Post("/api/items", itemHandler.CreateItemHandler)
+	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
