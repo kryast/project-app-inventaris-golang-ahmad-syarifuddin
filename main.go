@@ -31,6 +31,8 @@ func main() {
 	// Rute untuk User
 	r.Post("/api/items", itemHandler.CreateItemHandler)
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
+	r.Get("/api/categories", categoryHandler.GetAllCategoryHandler)
+	r.Get("/api/categories/{id}", categoryHandler.GetCategoryByIdHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
