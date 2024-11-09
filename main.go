@@ -30,7 +30,7 @@ func main() {
 
 	// Rute Postman
 	r.Get("/api/items", itemHandler.GetAllItemHandler)
-	r.Get("/api/items", itemHandler.GetItemsWithFiltersHandler)
+	// r.Get("/api/items", itemHandler.GetItemsWithFiltersHandler)
 	r.Get("/api/items/{id}", itemHandler.GetItemByIdHandler)
 	r.Post("/api/items", itemHandler.CreateItemHandler)
 	r.Put("/api/items/{id}", itemHandler.UpdateItemHandler)
@@ -51,6 +51,7 @@ func main() {
 	r.Get("/", handler.Home)
 	r.Get("/create-item", categoryHandler.CMSCreateItemPageHandler)
 	r.Post("/create-item", itemHandler.CMSCreateItemHandler)
+	r.Get("/all-item", itemHandler.CMSAllItemHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
