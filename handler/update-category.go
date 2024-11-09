@@ -11,12 +11,25 @@ func (ch *CategoryHandler) UpdateCategoryHandler(w http.ResponseWriter, r *http.
 
 	id := library.GetID(w, r)
 
+	oldCategory, err := ch.serviceCategories.GetCategoryById(id)
+	if err != nil {
+		library.Response400(w, "Item not found")
+		return
+	}
+
 	var category model.Category
-	err := json.NewDecoder(r.Body).Decode(&category)
+	err = json.NewDecoder(r.Body).Decode(&category)
 
 	if err != nil {
 		library.Response400(w, "Invalid request data")
 		return
+	}
+
+	if category.Name == "" {
+		category.Name = oldCategory.Name
+	}
+	if category.Description == "" {
+		category.Description = oldCategory.Description
 	}
 
 	category.ID = id

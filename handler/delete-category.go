@@ -9,9 +9,15 @@ import (
 func (ch *CategoryHandler) DeleteCategoryHandler(w http.ResponseWriter, r *http.Request) {
 	id := library.GetID(w, r)
 
-	err := ch.serviceCategories.DeleteCategoryByID(id)
+	_, err := ch.serviceCategories.GetCategoryById(id)
 	if err != nil {
-		library.Response500(w, fmt.Sprintf("Error deleting category: %d", id))
+		library.Response500(w, fmt.Sprintf("id: %d not found", id))
+		return
+	}
+
+	err = ch.serviceCategories.DeleteCategoryByID(id)
+	if err != nil {
+		library.Response500(w, fmt.Sprintf("Error deleting category with id: %d", id))
 		return
 	}
 

@@ -27,3 +27,9 @@
 
   <!-- read item by id sementara -->
   curl -X GET http://localhost:8080/api/items/1
+
+  <!-- update item by id sementara -->
+  curl -X PUT http://localhost:8080/api/items/1 -d '{"name" : "update 1"}'
+
+  <!-- delete item by id sementara -->
+  curl -X DELETE http://localhost:8080/api/items/2
