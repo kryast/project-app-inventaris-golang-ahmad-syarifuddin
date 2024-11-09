@@ -15,7 +15,6 @@ func (is *ItemService) GetItemInvestmentByID(itemID int) (*model.Investment, err
 	depreciationRate := 10.0
 	depreciatedValue := int(float64(item.Price) * (1 - (depreciationRate / 100)))
 
-	// Buat struct ItemDepreciation dan return
 	itemDepreciation := model.Investment{
 		ItemID:           item.ID,
 		Name:             item.Name,

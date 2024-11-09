@@ -7,7 +7,7 @@ import (
 )
 
 func (ih *ItemHandler) GetAllInvestmentHandler(w http.ResponseWriter, r *http.Request) {
-	// Ambil summary total investasi dan depresiasi dari service
+
 	investmentSummary, err := ih.serviceItems.GetTotalInvestment()
 	if err != nil {
 		library.Response500(w, fmt.Sprintf("Error fetching investment summary: %v", err))

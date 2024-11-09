@@ -5,7 +5,6 @@ import (
 	"project-app-inventaris-golang-ahmad-syarifuddin/model"
 )
 
-// Implementasi fungsi untuk mengambil item yang memerlukan penggantian
 func (r *ItemRepositoryDB) GetItemsForReplacement() ([]model.Item, error) {
 	query := `
         SELECT id, name, category_id, photo_url, price, purchase_date, total_usage_days, replacement_required
