@@ -2,7 +2,7 @@ package repository
 
 import "project-app-inventaris-golang-ahmad-syarifuddin/model"
 
-func (r *CategoryRepositoryDB) GetAllCategory() (*[]model.Category, error) {
+func (r *CategoryRepositoryDB) GetAllCategory() ([]model.Category, error) {
 	categories := []model.Category{}
 	query := `SELECT id, name, description FROM categories`
 	rows, err := r.DB.Query(query)
@@ -22,5 +22,5 @@ func (r *CategoryRepositoryDB) GetAllCategory() (*[]model.Category, error) {
 		return nil, err
 	}
 
-	return &categories, nil
+	return categories, nil
 }

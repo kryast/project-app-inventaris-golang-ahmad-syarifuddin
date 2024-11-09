@@ -28,6 +28,9 @@
   <!-- read item by id sementara -->
   curl -X GET http://localhost:8080/api/items/1
 
+  <!-- get item filter -->
+  curl -X GET http://localhost:8080/api/items?category=elektronik
+
   <!-- update item by id sementara -->
   curl -X PUT http://localhost:8080/api/items/1 -d '{"name" : "update 1"}'
 

@@ -28,7 +28,7 @@ func main() {
 
 	r := chi.NewRouter()
 
-	// Rute untuk User
+	// Rute Postman
 	r.Get("/api/items", itemHandler.GetAllItemHandler)
 	r.Get("/api/items", itemHandler.GetItemsWithFiltersHandler)
 	r.Get("/api/items/{id}", itemHandler.GetItemByIdHandler)
@@ -46,6 +46,11 @@ func main() {
 	r.Get("/api/categories/{id}", categoryHandler.GetCategoryByIdHandler)
 	r.Put("/api/categories/{id}", categoryHandler.UpdateCategoryHandler)
 	r.Delete("/api/categories/{id}", categoryHandler.DeleteCategoryHandler)
+
+	// Rute CMS
+	r.Get("/", handler.Home)
+	r.Get("/create-item", categoryHandler.CMSCreateItemPageHandler)
+	r.Post("/create-item", itemHandler.CMSCreateItemHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
