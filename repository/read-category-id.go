@@ -19,6 +19,5 @@ func (r *CategoryRepositoryDB) GetCategoryById(id int) (*model.Category, error) 
 		return nil, err
 	}
 
-	// Mengembalikan data pengguna
 	return &category, nil
 }

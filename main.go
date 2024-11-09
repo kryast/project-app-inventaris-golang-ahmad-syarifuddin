@@ -29,7 +29,9 @@ func main() {
 	r := chi.NewRouter()
 
 	// Rute untuk User
+	r.Get("/api/items", itemHandler.GetAllItemHandler)
 	r.Post("/api/items", itemHandler.CreateItemHandler)
+
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
 	r.Get("/api/categories", categoryHandler.GetAllCategoryHandler)
 	r.Get("/api/categories/{id}", categoryHandler.GetCategoryByIdHandler)

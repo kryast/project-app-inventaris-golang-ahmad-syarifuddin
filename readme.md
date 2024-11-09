@@ -9,10 +9,6 @@ curl -X POST http://localhost:8080/api/items \
   <!-- create category sementara -->
   curl -X POST http://localhost:8080/api/categories -d '{"name": "Elektronik", "description": "Peralatan elektronik kantor"}'
 
-  curl -X POST http://localhost:8080/api/categories -d '{"name": "Furniture", "description": "Peralatan furniture kantor"}'
-
-  curl -X POST http://localhost:8080/api/categories -d '{"name": "Peralatan Dapur", "description": "Kategori Untuk Peralatan Dapur"}'
-
   <!-- Get All categories sementara -->
   curl -X GET http://localhost:8080/api/categories
 
