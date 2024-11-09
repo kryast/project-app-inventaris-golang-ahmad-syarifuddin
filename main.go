@@ -55,7 +55,7 @@ func main() {
 	r.Delete("/api/categories/{id}", categoryHandler.DeleteCategoryHandler)
 
 	// Rute CMS
-	r.Get("/", handler.Home)
+	r.Get("/", itemHandler.Home)
 	r.Get("/create-item", categoryHandler.CMSCreateItemPageHandler)
 	r.Post("/create-item", itemHandler.CMSCreateItemHandler)
 	r.Get("/all-item", itemHandler.CMSAllItemHandler)
