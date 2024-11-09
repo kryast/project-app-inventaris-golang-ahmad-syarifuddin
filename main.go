@@ -34,6 +34,7 @@ func main() {
 	r.Post("/api/items", itemHandler.CreateItemHandler)
 	r.Put("/api/items/{id}", itemHandler.UpdateItemHandler)
 	r.Delete("/api/items/{id}", itemHandler.DeleteItemHandler)
+	r.Get("/api/items/replacement-needed", itemHandler.GetItemReplacementHandler)
 
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
 	r.Get("/api/categories", categoryHandler.GetAllCategoryHandler)

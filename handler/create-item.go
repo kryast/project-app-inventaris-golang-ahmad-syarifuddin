@@ -46,13 +46,21 @@ func (ih *ItemHandler) CreateItemHandler(w http.ResponseWriter, r *http.Request)
 	}
 	totalUsageDays := int(time.Since(purchaseDate).Hours() / 24)
 
+	var replacementRequired bool
+	if totalUsageDays > 100 {
+		replacementRequired = true
+	} else {
+		replacementRequired = false
+	}
+
 	item := model.Item{
-		Name:          name,
-		Category:      categoryID,
-		PhotoURL:      photoPath,
-		Price:         price,
-		PurchaseDate:  purchaseDate,
-		TotalUsageDay: totalUsageDays,
+		Name:                name,
+		CategoryID:          categoryID,
+		PhotoURL:            photoPath,
+		Price:               price,
+		PurchaseDate:        purchaseDate,
+		TotalUsageDay:       totalUsageDays,
+		ReplacementRequired: replacementRequired,
 	}
 
 	err = ih.serviceItems.CreateItem(item)
