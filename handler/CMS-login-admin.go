@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"project-app-inventaris-golang-ahmad-syarifuddin/library"
 	"project-app-inventaris-golang-ahmad-syarifuddin/service"
 	"strconv"
 	"time"
@@ -22,7 +23,7 @@ func (ah *AdminHandler) LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	admin, err := ah.serviceAdmin.ValidateAdmin(username, password)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusUnauthorized)
+		library.Response400(w, err.Error())
 		return
 	}
 

@@ -64,6 +64,9 @@ func main() {
 	r.Get("/login", handler.FormLogin)
 	r.Post("/login", adminHandler.LoginHandler)
 
+	r.Get("/register-view", handler.FormRegister)
+	r.Post("/register", adminHandler.CreateAdminHandler)
+
 	r.With(middleware.CheckLoginMiddleware).Group(func(r chi.Router) {
 
 		r.Get("/", itemHandler.Home)

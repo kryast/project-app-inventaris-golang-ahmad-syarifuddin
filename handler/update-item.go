@@ -39,6 +39,12 @@ func (ih *ItemHandler) UpdateItemHandler(w http.ResponseWriter, r *http.Request)
 	if item.PurchaseDate.IsZero() {
 		item.PurchaseDate = oldItem.PurchaseDate
 	}
+	if item.TotalUsageDay == 0 {
+		item.TotalUsageDay = oldItem.TotalUsageDay
+	}
+	if item.ReplacementRequired == nil {
+		item.ReplacementRequired = oldItem.ReplacementRequired
+	}
 
 	item.ID = id
 	err = ih.serviceItems.UpdateItem(item)

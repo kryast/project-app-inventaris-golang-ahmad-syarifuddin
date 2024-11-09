@@ -11,6 +11,9 @@ var templates = template.Must(template.ParseGlob("view/*.html"))
 func FormLogin(w http.ResponseWriter, r *http.Request) {
 	templates.ExecuteTemplate(w, "login-view", nil)
 }
+func FormRegister(w http.ResponseWriter, r *http.Request) {
+	templates.ExecuteTemplate(w, "register-view", nil)
+}
 
 func Logout(w http.ResponseWriter, r *http.Request) {
 	templates.ExecuteTemplate(w, "logout-view", nil)

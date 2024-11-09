@@ -27,7 +27,6 @@ func (r *ItemRepositoryDB) GetAllItem() ([]model.Item, error) {
 	var items []model.Item
 	for rows.Next() {
 		var item model.Item
-
 		err := rows.Scan(
 			&item.ID,
 			&item.Name,
@@ -44,10 +43,6 @@ func (r *ItemRepositoryDB) GetAllItem() ([]model.Item, error) {
 		}
 
 		items = append(items, item)
-	}
-
-	if err := rows.Err(); err != nil {
-		return nil, err
 	}
 
 	return items, nil

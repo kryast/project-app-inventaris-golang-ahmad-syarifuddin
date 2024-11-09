@@ -1,0 +1,19 @@
+{{define "register-view"}}
+{{template "layout-view"}}
+    <section class="login">
+        <h2>Register Admin</h2>
+        <form action="/register" method="POST">
+            <label for="name">name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+{{end}}

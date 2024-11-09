@@ -55,7 +55,7 @@ func (ih *ItemHandler) CMSCreateItemHandler(w http.ResponseWriter, r *http.Reque
 		Price:               price,
 		PurchaseDate:        purchaseDate,
 		TotalUsageDay:       totalUsageDays,
-		ReplacementRequired: replacementRequired,
+		ReplacementRequired: &replacementRequired,
 	}
 
 	err = ih.serviceItems.CreateItem(item)

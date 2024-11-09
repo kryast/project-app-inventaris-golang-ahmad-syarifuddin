@@ -60,7 +60,7 @@ func (ih *ItemHandler) CreateItemHandler(w http.ResponseWriter, r *http.Request)
 		Price:               price,
 		PurchaseDate:        purchaseDate,
 		TotalUsageDay:       totalUsageDays,
-		ReplacementRequired: replacementRequired,
+		ReplacementRequired: &replacementRequired,
 	}
 
 	err = ih.serviceItems.CreateItem(item)
