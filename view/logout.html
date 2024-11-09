@@ -1,0 +1,15 @@
+{{define "logout-view"}}
+{{template "layout-view"}}
+    <header>
+        <h1>Logout</h1>
+    </header>
+
+    <section id="logout">
+        <h2>Apakah Anda yakin ingin logout?</h2>
+        <div class="logout-buttons">
+            <a href="/logout" class="btn-confirm">Ya, Logout</a>
+            <a href="/" class="btn-cancel">Tidak, Batalkan</a>
+        </div>
+    </section>
+
+{{end}}
