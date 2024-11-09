@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"project-app-inventaris-golang-ahmad-syarifuddin/database"
 	"project-app-inventaris-golang-ahmad-syarifuddin/handler"
+	"project-app-inventaris-golang-ahmad-syarifuddin/library"
 	"project-app-inventaris-golang-ahmad-syarifuddin/repository"
 	"project-app-inventaris-golang-ahmad-syarifuddin/service"
 
@@ -27,6 +28,8 @@ func main() {
 	categoryHandler := handler.NewCategoryHandler(serviceCategory)
 
 	r := chi.NewRouter()
+
+	r.Use(library.MethodForm)
 
 	// Rute Postman
 	r.Get("/api/items", itemHandler.GetAllItemHandler)
@@ -52,6 +55,8 @@ func main() {
 	r.Get("/create-item", categoryHandler.CMSCreateItemPageHandler)
 	r.Post("/create-item", itemHandler.CMSCreateItemHandler)
 	r.Get("/all-item", itemHandler.CMSAllItemHandler)
+	r.Get("/update-item/{id}", itemHandler.CMSUpdateItemPageHandler)
+	r.Put("/update-item/{id}", itemHandler.CMSUpdateItemHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)

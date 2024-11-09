@@ -16,8 +16,7 @@ func (r *ItemRepositoryDB) GetAllItem() ([]model.Item, error) {
                   items.total_usage_days,
                   items.replacement_required
               FROM items
-              INNER JOIN categories ON items.category_id = categories.id
-			  LIMIT 2 OFFSET 0`
+              INNER JOIN categories ON items.category_id = categories.id`
 
 	rows, err := r.DB.Query(query)
 	if err != nil {

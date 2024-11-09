@@ -77,5 +77,5 @@ func (ih *ItemHandler) CMSCreateItemHandler(w http.ResponseWriter, r *http.Reque
 	}
 
 	// Redirect ke halaman utama atau ke halaman lain setelah sukses
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, "/all-item", http.StatusSeeOther)
 }

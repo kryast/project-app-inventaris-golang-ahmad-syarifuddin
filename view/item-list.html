@@ -35,7 +35,7 @@
                         {{end}}
                     </td>
                     <td>
-                        <a href="/edit-item/{{.ID}}">Edit</a> |
+                        <a href="/update-item/{{.ID}}">Edit</a> |
                         <form action="/delete-item/{{.ID}}" method="POST" style="display:inline;">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit">Hapus</button>
