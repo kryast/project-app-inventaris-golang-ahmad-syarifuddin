@@ -37,6 +37,7 @@ func main() {
 
 	r.Get("/api/items/replacement-needed", itemHandler.GetItemReplacementHandler)
 
+	r.Get("/api/items/investment", itemHandler.GetAllInvestmentHandler)
 	r.Get("/api/items/investment/{id}", itemHandler.GetItemInvestmentByIDHandler)
 
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)
