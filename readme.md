@@ -33,3 +33,9 @@
 
   <!-- delete item by id sementara -->
   curl -X DELETE http://localhost:8080/api/items/2
+
+  <!-- read investment by id -->
+  curl -X GET http://localhost:8080/api/items/investment/1
+
+  <!-- read all investment -->
+  curl -X GET http://localhost:8080/api/items/investment
