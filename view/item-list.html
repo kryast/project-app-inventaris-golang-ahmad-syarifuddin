@@ -1,0 +1,53 @@
+{{define "item-list-view"}}
+{{template "layout-view"}}
+    <header>
+        <h1>Item List</h1>
+    </header>
+
+    <section id="item-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Item</th>
+                    <th>Nama Item</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Tanggal Pembelian</th>
+                    <th>Jumlah Penggunaan</th>
+                    <th>Replacement Diperlukan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}} 
+                <tr>
+                    <td>{{.ID}}</td> 
+                    <td>{{.Name}}</td> 
+                    <td>{{.CategoryName}}</td> 
+                    <td>Rp {{.Price}}</td> 
+                    <td>{{.PurchaseDate.Format "2006-01-02"}}</td>
+                    <td>{{.TotalUsageDay}}</td>
+                    <td>
+                        {{if .ReplacementRequired}}
+                            Ya
+                        {{else}}
+                            Tidak
+                        {{end}}
+                    </td>
+                    <td>
+                        <a href="/edit-item/{{.ID}}">Edit</a> |
+                        <form action="/delete-item/{{.ID}}" method="POST" style="display:inline;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="8">Tidak ada item untuk ditampilkan</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </section>
+{{end}}
