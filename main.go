@@ -30,6 +30,7 @@ func main() {
 
 	// Rute untuk User
 	r.Get("/api/items", itemHandler.GetAllItemHandler)
+	r.Get("/api/items/{id}", itemHandler.GetItemByIdHandler)
 	r.Post("/api/items", itemHandler.CreateItemHandler)
 
 	r.Post("/api/categories", categoryHandler.CreateCategoryHandler)

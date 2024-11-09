@@ -11,7 +11,7 @@ func (ch *CategoryHandler) GetCategoryByIdHandler(w http.ResponseWriter, r *http
 
 	category, err := ch.serviceCategories.GetCategoryById(id)
 	if err != nil {
-		library.Response404(w, fmt.Sprintf("category: %d not found", id))
+		library.Response404(w, fmt.Sprintf("category with id: %d not found", id))
 		return
 	}
 
