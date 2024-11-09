@@ -1,0 +1,35 @@
+{{define "investment-item-view"}}
+{{template "layout-view"}}
+    <header>
+        <h1>Investment Item Details</h1>
+    </header>
+
+    <section id="investment-details">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Initial Price</th>
+                    <th>Depreciated Value</th>
+                    <th>Depreciation Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}  
+                <tr>
+                    <td>{{.ItemID}}</td>  
+                    <td>{{.Name}}</td>   
+                    <td>Rp {{.InitialPrice}}</td>  
+                    <td>Rp {{.DepreciatedValue}}</td> 
+                    <td>{{.DepreciationRate}}%</td> 
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="5">No investment details available</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </section>
+{{end}}

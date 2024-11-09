@@ -12,9 +12,6 @@ func (ih *CategoryHandler) CMSCreateItemPageHandler(w http.ResponseWriter, r *ht
 		return
 	}
 
-	err = templates.ExecuteTemplate(w, "create-item-view", categories)
-	if err != nil {
-		http.Error(w, "Error rendering template: "+err.Error(), http.StatusInternalServerError)
-		return
-	}
+	templates.ExecuteTemplate(w, "create-item-view", categories)
+
 }

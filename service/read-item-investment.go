@@ -5,7 +5,7 @@ import (
 	"project-app-inventaris-golang-ahmad-syarifuddin/model"
 )
 
-func (is *ItemService) GetAllInvestment() (*model.AllInvestment, error) {
+func (is *ItemService) GetTotalInvestment() (*model.AllInvestment, error) {
 
 	items, err := is.RepoItem.GetAllItem()
 	if err != nil {

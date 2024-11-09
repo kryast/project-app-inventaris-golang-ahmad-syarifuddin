@@ -27,6 +27,10 @@ func main() {
 	serviceCategory := service.NewCategoryService(repoCategory)
 	categoryHandler := handler.NewCategoryHandler(serviceCategory)
 
+	repoInvestment := repository.NewInvestmentRepository(db)
+	serviceInvestment := service.NewInvestmentService(repoInvestment)
+	investmentHandler := handler.NewInvestmentHandler(serviceInvestment)
+
 	r := chi.NewRouter()
 
 	r.Use(library.MethodForm)
@@ -57,6 +61,9 @@ func main() {
 	r.Get("/all-item", itemHandler.CMSAllItemHandler)
 	r.Get("/update-item/{id}", itemHandler.CMSUpdateItemPageHandler)
 	r.Put("/update-item/{id}", itemHandler.CMSUpdateItemHandler)
+	r.Delete("/delete-item/{id}", itemHandler.CMSDeleteItemHandler)
+
+	r.Get("/investment", investmentHandler.CMSGetItemInvestmentHandler)
 
 	fmt.Println("Server started on port 8080")
 	http.ListenAndServe(":8080", r)
